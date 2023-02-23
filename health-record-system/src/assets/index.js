@@ -1,0 +1,1 @@
+export { default as EHR } from './ehr.png'
