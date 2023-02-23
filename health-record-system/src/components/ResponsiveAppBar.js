@@ -30,7 +30,7 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    console.log('login')
   };
 
   const handleCloseUserMenu = () => {
@@ -113,7 +113,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            MHRS
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
