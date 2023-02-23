@@ -6,6 +6,7 @@ import MainPage from './components/MainPage';
 import ResponsiveAppBar from './components/ResponsiveAppBar';
 
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
