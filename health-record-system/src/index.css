@@ -1,7 +1,3 @@
-#root {
-  background-color: #2f404b;
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,6 +13,7 @@ code {
 }
 
 .Main-Page {
+  background-color: #2f404b;
   text-align: center;
 }
 
@@ -27,5 +24,4 @@ code {
   align-items: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  margin-top: 50px;
 }

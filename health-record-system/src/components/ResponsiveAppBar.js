@@ -14,11 +14,13 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Login'];
 const settings = ['Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -30,7 +32,7 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseNavMenu = () => {
-    console.log('login')
+    navigate('/signIn', { replace: true });
   };
 
   const handleCloseUserMenu = () => {
