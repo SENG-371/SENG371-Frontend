@@ -10,7 +10,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -52,8 +52,8 @@ export default function SignInPage() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+          <Avatar sx={{ m: 1, bgcolor: '#1E88E5' }}>
+            <HealthAndSafetyIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
@@ -63,10 +63,10 @@ export default function SignInPage() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="prac-id"
+              label="Practitioner Id"
+              name="prac-id"
+              autoComplete="prac-id"
               autoFocus
             />
             <TextField
