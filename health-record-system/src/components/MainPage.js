@@ -4,7 +4,6 @@ import ResponsiveAppBar from './ResponsiveAppBar'
 
 
 function MainPage() {
-  
   return (
     <>
     <ResponsiveAppBar></ResponsiveAppBar>
