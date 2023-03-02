@@ -27,5 +27,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
-    - run: cd health-record-system && npm i
+    - run: cd health-record-system && npm ci
     - run: cd health-record-system && npm run build --if-present
