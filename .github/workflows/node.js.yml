@@ -29,3 +29,5 @@ jobs:
         cache-dependency-path: '**/package-lock.json'
     - run: cd health-record-system && npm ci
     - run: cd health-record-system && npm run build --if-present
+      env:
+        CI: false
