@@ -4,11 +4,10 @@
 name: Node.js Package Deployment
 
 on:
-  release:
-    push:
-      branches: [ "main" ]
-    pull_request:
-      branches: [ "main" ]
+  push:
+    branches: '**'
+  pull_request:
+    branches: '**'
 
 jobs:
   build:
