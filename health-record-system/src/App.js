@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import MainPage from './components/MainPage';
 import SignInPage from './components/SignInPage';
-import ResponsiveAppBar from './components/ResponsiveAppBar';
+import Dashboard from './components/Dashboard'
 
 export default function App() {
   return (
@@ -11,6 +11,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="signIn" element={<SignInPage />} />
+        <Route path="dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
