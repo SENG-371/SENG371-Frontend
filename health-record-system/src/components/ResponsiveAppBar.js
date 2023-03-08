@@ -39,6 +39,12 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const temp = (s) => {
+    if (s == "Dashboard") {
+      navigate('/overview', { replace: true });
+    }
+  };
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -62,7 +68,7 @@ function ResponsiveAppBar() {
             MHRS
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -97,9 +103,11 @@ function ResponsiveAppBar() {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
-          <HealthAndSafetyIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
+          </Box> */}
+
+
+          {/* <HealthAndSafetyIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+          {/* <Typography
             variant="h5"
             noWrap
             component="a"
@@ -116,7 +124,8 @@ function ResponsiveAppBar() {
             }}
           >
             MHRS
-          </Typography>
+          </Typography> */}
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -152,7 +161,7 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => temp(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
