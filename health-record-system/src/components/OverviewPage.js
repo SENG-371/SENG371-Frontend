@@ -25,7 +25,7 @@ export default function OverviewPage() {
   };
 
   return (
-    <div style={{ backgroundColor: "#2f404b", height: "100vh", color: "white" }}>
+    <div style={{ backgroundColor: "black", height: "100vh", color: "white" }}>
       <Box sx={{ flexGrow: 1 }}>
 
         <Grid container spacing={2}>
@@ -51,26 +51,28 @@ export default function OverviewPage() {
                 <TextField sx={{
                   "& .MuiFormLabel-root, .MuiInputBase-root": {
                     color: 'white'
+                  },
+                  '& MuiFormControl-root': {
+                    border: 'white'
                   }
                 }}
                   id="outlined-textarea"
-                  label="Multiline Placeholder"
-                  placeholder="Placeholder"
+                  label="Enter Patient Name"
+                  placeholder="Enter Patient Name"
                   multiline
                 />
               </div>
             </Box>
           </Grid>
 
-          <Grid item xs={12} style={{ padding: 0, margin: 'auto' }}>
-            <Box sx={{ bgcolor: '#2f404b' }}>
+          <Grid item xs={12} >
+            <Box sx={{ bgcolor: 'black' }}>
               <Tabs
                 value={value}
                 onChange={handleChange}
-                variant="scrollable"
+                variant="fullWidth"
+                textColor='white'
                 scrollButtons="auto"
-                aria-label="scrollable auto tabs example"
-                fullWidth={true}
               >
                 <Tab label="Item One" />
                 <Tab label="Item Two" />
@@ -87,7 +89,7 @@ export default function OverviewPage() {
             <Box sx={{ width: '100%' }}>
               <List sx={{
                 width: '100%',
-                bgcolor: "#2f404b",
+                bgcolor: "black",
                 position: 'relative',
                 overflow: 'auto',
                 maxHeight: 600,
@@ -95,18 +97,10 @@ export default function OverviewPage() {
               }}>
                 <ListItem disablePadding>
                   <Card sx={{ width: '100%', margin: 1 }}>
-                    <CardMedia
-                      sx={{ height: 140 }}
-                      image="/static/images/cards/contemplative-reptile.jpg"
-                      title="green iguana"
-                    />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         Card 1
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
-
-                      </Typography>
                     </CardContent>
                     <CardActions>
                       <Button size="small">Share</Button>
@@ -116,18 +110,12 @@ export default function OverviewPage() {
                 </ListItem>
                 <ListItem disablePadding>
                   <Card sx={{ width: '100%', margin: 1 }}>
-                    <CardMedia
-                      sx={{ height: 140 }}
-                      image="/static/images/cards/contemplative-reptile.jpg"
-                      title="green iguana"
-                    />
+
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         Card 2
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
 
-                      </Typography>
                     </CardContent>
                     <CardActions>
                       <Button size="small">Share</Button>
@@ -137,18 +125,12 @@ export default function OverviewPage() {
                 </ListItem>
                 <ListItem disablePadding>
                   <Card sx={{ width: '100%', margin: 1 }}>
-                    <CardMedia
-                      sx={{ height: 140 }}
-                      image="/static/images/cards/contemplative-reptile.jpg"
-                      title="green iguana"
-                    />
+
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         Card 3
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
 
-                      </Typography>
                     </CardContent>
                     <CardActions>
                       <Button size="small">Share</Button>
@@ -157,7 +139,6 @@ export default function OverviewPage() {
                   </Card>
                 </ListItem>
               </List>
-
             </Box>
           </Grid>
         </Grid>
