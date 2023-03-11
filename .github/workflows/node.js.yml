@@ -27,8 +27,18 @@ jobs:
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
 
+    - name: Remove File
+      uses: JesseTG/rm@v1.0.3
+      with:
+        path: '**/node_modules'
+        
+    - name: Remove File
+      uses: JesseTG/rm@v1.0.3
+      with:
+        path: '**/package-lock.json' 
+        
     - name: Install dependencies
-      run: rm -rf node_modules && rm -rf package-lock.json && npm ci
+      run: npm ci
 
    
     - name: Build
