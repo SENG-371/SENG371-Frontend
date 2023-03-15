@@ -19,7 +19,6 @@ import Typography from '@mui/material/Typography';
 import '../../index.css';
 import HealthRecords from './HealthRecords';
 import Header from './Header';
-import axios from "axios";
 import Patients from '../../assets/Patients';
 
 export default function OverviewPage() {

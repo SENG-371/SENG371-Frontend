@@ -1,7 +1,7 @@
 import '../index.css';
 import { EHR } from '../assets'
 import ResponsiveAppBar from './ResponsiveAppBar'
-import OverviewPage from './overviewpage/OverviewPage';
+import OverviewPage from './Overview/OverviewPage';
 
 
 function MainPage() {
