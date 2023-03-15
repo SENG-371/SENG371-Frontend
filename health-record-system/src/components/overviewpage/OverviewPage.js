@@ -16,56 +16,47 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import '../index.css';
-import HealthRecords from './overviewpage/HealthRecords';
-import Header from './overviewpage/Header';
+import '../../index.css';
+import HealthRecords from './HealthRecords';
+import Header from './Header';
 import axios from "axios";
-import Patients from '../assets/Patients';
+import Patients from '../../assets/Patients';
 
 export default function OverviewPage() {
   const [value, setValue] = React.useState(0);
+  const [component, setComponent] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const [component, setComponent] = useState(0);
-
 
   let currentPatient = ""
   if (localStorage.getItem("CurrentPatient")) {
     currentPatient = (localStorage.getItem("CurrentPatient"));
   }
 
-  console.log(JSON.parse(currentPatient).name)
-
-
   return (
     <>
-      <div style={{ backgroundColor: "black", height: "100vh", color: "white" }}>
+      <div style={{ height: "100vh", color: "white" }}>
         <Header />
         <Grid item xs={12} >
-          <Box sx={{ bgcolor: 'black' }}>
+          <Box className='blur-front' sx={{}}>
             <Tabs
-              value={value}
+              textColor='white'
               onChange={handleChange}
               variant="fullWidth"
-              textColor='white'
               scrollButtons="auto"
             >
               <Tab onClick={() => setComponent(0)} label="Health Records" />
               <Tab onClick={() => setComponent(1)} label="Tests" />
               <Tab onClick={() => setComponent(2)} label="Prescriptions" />
-              <Tab onClick={() => setComponent(3)} label="Item Four" />
-              <Tab onClick={() => setComponent(4)} label="Item Five" />
-              <Tab onClick={() => setComponent(5)} label="Item Six" />
-              <Tab onClick={() => setComponent(6)} label="Item Seven" />
+              <Tab onClick={() => setComponent(3)} label="Other Patient Data" />
+              <Tab onClick={() => setComponent(4)} label="Add Record" />
             </Tabs>
           </Box>
         </Grid>
         {component == 0 && (
-          <HealthRecords pName={JSON.parse(currentPatient).name} />
-
+          <HealthRecords pName={currentPatient} />
         )}
         {component == 1 && (
           <h1>Tests</h1>
@@ -79,16 +70,6 @@ export default function OverviewPage() {
         {component == 4 && (
           <h1>Item 4</h1>
         )}
-        {component == 5 && (
-          <h1>Item 5</h1>
-        )}
-        {component == 6 && (
-          <h1>Item 6</h1>
-        )}
-        {component == 7 && (
-          <h1>Item 7</h1>
-        )}
-
       </div>
     </>
   )

@@ -21,41 +21,53 @@ import Patients from '../../assets/Patients';
 
 export default function Header() {
   const [pName, setName] = useState("");
-
   const p = Patients();
+
+
+  let currentPatient = ""
+  let risk = 'NA'
+  if (localStorage.getItem("CurrentPatient")) {
+    currentPatient = (localStorage.getItem("CurrentPatient"));
+  }
+
+
   const handleSubmit = (event) => {
-    event.preventDefault();
+    localStorage.setItem("CurrentPatient", pName);
+    let patientName = currentPatient;
+    console.log(patientName);
 
-
-    const result = p.find(({ name }) => pName === name);
-
-    localStorage.setItem("CurrentPatient", JSON.stringify(result));
-    window.location.reload(false);
+  }
+  if (p.find(({ name }) => currentPatient === name)) {
+    const result = p.find(({ name }) => currentPatient === name)
+    risk = result.riskLevel
+    console.log(result)
 
   }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         <Grid item xs={12}>
-          <h1>Welcome Healthcare practitioner</h1>
+          <h1 className='blur-front'>Welcome Healthcare practitioner</h1>
         </Grid>
-
-        <Grid style={{ padding: 0, margin: 'auto' }} item xs={9}>
-
-          <div>
+        <Grid style={{}} item xs={8}>
+          <div className='blur-front patientNameBox'>
             <form onSubmit={handleSubmit}>
-              <label>Enter your name:
+              <h1 className='labelStyle'>Enter Patient Name</h1>
+              <label >
                 <input
+                  className='textbox'
                   type="text"
                   value={pName}
                   onChange={(e) => setName(e.target.value)}
                 />
               </label>
-              <input type="submit" />
+              <input className='button-22' type="submit" />
             </form>
           </div>
-
+        </Grid >
+        <Grid style={{}} item xs={4}>
+          <h1 className='blur-front'>Risk Level {risk}</h1>
         </Grid >
       </Grid >
     </Box >

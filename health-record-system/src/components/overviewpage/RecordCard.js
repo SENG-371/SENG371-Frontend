@@ -18,12 +18,18 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../../index.css';
 
-export default function RecordCard() {
+export default function RecordCard({ val }) {
   return (
     <Card sx={{ width: '100%', margin: 1 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Card 1
+          {val.title}
+        </Typography>
+        <Typography gutterBottom variant="h5" component="div">
+          {val.description}
+        </Typography>
+        <Typography gutterBottom variant="h5" component="div">
+          {val.date}
         </Typography>
       </CardContent>
       <CardActions>

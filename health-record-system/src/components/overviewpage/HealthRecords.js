@@ -21,26 +21,40 @@ import RecordCard from './RecordCard';
 import Patients from '../../assets/Patients';
 
 export default function HealthRecords({ pName }) {
-  return (
-    <Grid item xs={12}>
-      <Box sx={{ width: '100%' }}>
-        <h1>Add Record for {pName} </h1>
-        <Button variant="outlined">Add Record</Button>
-        <List sx={{
-          width: '100%',
-          bgcolor: "black",
-          position: 'relative',
-          overflow: 'auto',
-          maxHeight: 600,
-          '& ul': { padding: 0 },
-        }}>
-          <ListItem disablePadding>
+  const p = Patients();
+  // console.log(pName)
+  if (p.find(({ name }) => pName === name)) {
+    const patientInfo = p.find(({ name }) => pName === name);
+    return (
+      <Grid item xs={12}>
+        <Box className='blur-front' sx={{}}>
+          <h1>Records for {patientInfo.name} who is {patientInfo.age}</h1>
+          <List sx={{
+            width: '100%',
+            position: 'relative',
+            overflow: 'auto',
+            maxHeight: 600,
+            '& ul': { padding: 0 },
+          }}>
+            {patientInfo.records.map((record) => (
+              <ListItem disablePadding>
+                <RecordCard val={record} />
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Grid>
+    )
+  } else {
+    return (
+      <Grid item xs={12}>
+        <Box className='blur-front' sx={{}}>
+          <h1>Please Select a Patient</h1>
+        </Box>
+      </Grid>
+    )
+  }
 
-            <RecordCard />
-          </ListItem>
-        </List>
-      </Box>
-    </Grid>
-  )
+
 
 }
