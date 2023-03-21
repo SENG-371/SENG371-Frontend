@@ -10,7 +10,7 @@ body,
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   overflow: auto;
-  background-color: rgb(14, 55, 94);
+  background-color: '#fff'
 }
 
 .App {
