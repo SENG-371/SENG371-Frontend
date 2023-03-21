@@ -14,6 +14,8 @@ import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import OverviewPage from "../components/Overview/OverviewPage";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -36,6 +38,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInPage() {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -43,6 +46,7 @@ export default function SignInPage() {
       email: data.get("email"),
       password: data.get("password"),
     });
+    navigate("/overview", { replace: true });
   };
 
   return (
