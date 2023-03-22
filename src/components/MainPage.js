@@ -1,11 +1,13 @@
 import "../index.css";
 import { EHR } from "../assets";
 import ResponsiveAppBar from "./ResponsiveAppBar";
+import FetchData from "../components/Data/FetchData";
 
 function MainPage() {
   return (
     <>
       <ResponsiveAppBar></ResponsiveAppBar>
+      <FetchData></FetchData>
       <div className="Main-Page">
         <header className="Main-Page-header">
           <h1 style={{ fontWeight: "bold", marginTop: 40 }}>
