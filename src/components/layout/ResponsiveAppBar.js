@@ -32,7 +32,7 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseNavMenu = () => {
-    navigate("/signIn", { replace: true });
+    navigate("/singin", { replace: true });
   };
 
   const handleCloseUserMenu = () => {
