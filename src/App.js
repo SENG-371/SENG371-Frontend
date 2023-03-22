@@ -1,20 +1,21 @@
 import * as React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
-import MainPage from "./components/MainPage";
-import SignInPage from "./components/SignInPage";
-import OverviewPage from "./components/Overview/OverviewPage";
+import SignInPage from './pages/SignInPage';
+import OverviewPage from './pages/OverviewPage';
+import Layout from './components/layout/Layout';
+import LandingPage from './pages/LandingPage';
 
-export default function App() {
+function App() {
   return (
-    <div className="App">
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="signIn" element={<SignInPage />} />
-          <Route path="overview" element={<OverviewPage />} />
-        </Routes>
-      </HashRouter>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<SignInPage />} />
+        <Route path="/SENG371-Frontend" element={<LandingPage />} />
+        <Route path="/overview" element={<OverviewPage />} />
+      </Routes>
+    </Layout>
   );
 }
+
+export default App;
