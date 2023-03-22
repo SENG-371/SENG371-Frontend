@@ -4,8 +4,6 @@ import "../index.css";
 import { EHR } from "../assets";
 
 function LandingPage() {
-  const navigate = useNavigate();
-
   return (
     <div className="Main-Page">
       <header className="Main-Page-header">
