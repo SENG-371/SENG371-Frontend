@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import * as React from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import SignInPage from './pages/SignInPage';
 import OverviewPage from './pages/OverviewPage';
