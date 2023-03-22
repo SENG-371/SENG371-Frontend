@@ -11,16 +11,19 @@ import patientData from '../../assets/patients.json'
 
 
 export default function Header(props) {
-  console.log(patientData)
+
   const [name, setName] = useState('');
+  const [risk, setRisk] = useState('');
 
   function handleChange(event) {
     setName(event.target.value)
     if (patientData.find(({ name }) => event.target.value === name)) {
       localStorage.setItem('CurrentPatient', JSON.stringify(patientData.find(({ name }) => event.target.value === name)));
+      setRisk(JSON.parse(localStorage.getItem("CurrentPatient")).riskLevel);
     }
     props.onChange();
   };
+
 
   return (
     <div className={classes.gridContainer}>
@@ -47,7 +50,7 @@ export default function Header(props) {
         </Box>
       </div>
       <div className={classes.item3}>
-        <h1>Risk Level {JSON.parse(localStorage.getItem("CurrentPatient")).riskLevel}</h1>
+        <h1>Risk Level {risk}</h1>
       </div>
     </div>
   );

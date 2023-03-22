@@ -42,7 +42,7 @@
     "name": "Albert",
     "age": 26,
     "birthday": "January 12, 2000",
-    "riskLevel": 2,
+    "riskLevel": 10,
     "records": [
       {
         "title": "Test 698",
