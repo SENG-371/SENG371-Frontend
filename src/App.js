@@ -5,6 +5,7 @@ import SignInPage from "./pages/SignInPage";
 import OverviewPage from "./pages/OverviewPage";
 import Layout from "./components/layout/Layout";
 import LandingPage from "./pages/LandingPage";
+import NewPatient from './pages/NewPatient';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/singin" element={<SignInPage />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/overview" element={<OverviewPage />} />
+        <Route path="/newpatient" element={<NewPatient />} />
       </Routes>
     </Layout>
   );

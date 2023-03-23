@@ -1,29 +1,66 @@
 import * as React from 'react';
-import { useState } from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set } from "firebase/database";
 
 import classes from './Header.module.css'
-import patientData from '../../assets/patients.json'
-
 
 export default function Header(props) {
 
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [risk, setRisk] = useState('');
 
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedPatients, setLoadedPatients] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true)
+    fetch(
+      'https://reactstarter-a834d-default-rtdb.firebaseio.com/patients.json'
+    ).then((response) => {
+      return response.json();
+    }).then((data) => {
+      const patients = [];
+
+      for (const key in data) {
+        const patient = {
+          id: key,
+          ...data[key]
+        };
+        patients.push(patient)
+      }
+
+      setIsLoading(false)
+      setLoadedPatients(patients)
+
+    });
+  }, []);
+
   function handleChange(event) {
     setName(event.target.value)
-    if (patientData.find(({ name }) => event.target.value === name)) {
-      localStorage.setItem('CurrentPatient', JSON.stringify(patientData.find(({ name }) => event.target.value === name)));
-      setRisk(JSON.parse(localStorage.getItem("CurrentPatient")).riskLevel);
+    if (loadedPatients.find(({ name }) => event.target.value === name)) {
+      localStorage.setItem('CurrentPatient', JSON.stringify(loadedPatients.find(({ name }) => event.target.value === name)));
+
+      setRisk(JSON.parse(localStorage.getItem("CurrentPatient")).risk);
     }
+
     props.onChange();
   };
 
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
+  const handleSubmit = (event) => {
+    navigate("/newpatient", { replace: true });
+  };
 
   return (
     <div className={classes.gridContainer}>
@@ -32,25 +69,15 @@ export default function Header(props) {
       </div>
       <div className={classes.item2}>
         <h1>Patient Lookup</h1>
-        <Box sx={{ minWidth: 20 }}>
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Name</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={name}
-              label="Name"
-              onChange={handleChange}
-            >
-              <MenuItem value={'Jason'}>Jason</MenuItem>
-              <MenuItem value={'Albert'}>Albert</MenuItem>
-              <MenuItem value={'Katie'}>Katie</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
+        <select onChange={handleChange}>
+          <option value={name}> -- Select a Patient -- </option>
+          {loadedPatients.map((patient) => <option value={patient.name}>{patient.name}</option>)}
+        </select>
+        <button onClick={handleSubmit}>Add new patient</button>
       </div>
       <div className={classes.item3}>
-        <h1>Risk Level {risk}</h1>
+        <h1>Current Patient: {name}</h1>
+        <h1>Risk Level: {risk}</h1>
       </div>
     </div>
   );

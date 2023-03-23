@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import HealthRecords from '../components/ui/HealthRecords';
 import Header from '../components/layout/Header';
 import classes from './OverviewPage.module.css'
+import NewRecord from './NewRecord';
 
 function OverviewPage() {
 
@@ -22,7 +23,6 @@ function OverviewPage() {
   function handleChange() {
 
   }
-
   return (
     <div className={classes.container}>
       <Header onChange={handleEvent} />
@@ -64,7 +64,7 @@ function OverviewPage() {
       }
       {
         component == 4 && (
-          <h1>Item 4</h1>
+          <NewRecord />
         )
       }
     </div >
