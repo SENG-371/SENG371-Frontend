@@ -1,22 +1,60 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
+import { useState, useEffect } from "react";
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, child, get } from "firebase/database";
 
 import '../../index.css';
-import RecordCard from './RecordCard';
-import Patients from '../../assets/Patients';
+
 import RecordList from './RecordList';
 
 
 function HealthRecords(props) {
+  // console.log(props)
+  const pid = JSON.parse(props.pName).pid
+  const firebaseConfig = {
+    databaseURL: "https://reactstarter-a834d-default-rtdb.firebaseio.com/",
+  };
+  const app = initializeApp(firebaseConfig);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedMeetups, setLoadedMeetups] = useState([]);
+  const records = []
+
+  useEffect(() => {
+    setIsLoading(true)
+    fetch(
+      `https://reactstarter-a834d-default-rtdb.firebaseio.com/patients/${pid}/records.json`
+    ).then((response) => {
+      return response.json();
+    }).then((data) => {
+      const meetups = [];
+      // console.log(data)
+      for (const key in data) {
+        const meetup = {
+          id: key,
+          ...data[key]
+        };
+        meetups.push(meetup)
+      }
+
+      setIsLoading(false)
+      setLoadedMeetups(meetups)
+    });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
   return (
     <div>
       <h1>Health Records</h1>
       {
         props.pName != 0 && (
-          <RecordList meetups={props} />
+          <RecordList records={props} />
         )
       }
     </div>
