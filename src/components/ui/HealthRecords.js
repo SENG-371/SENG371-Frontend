@@ -27,7 +27,6 @@ function HealthRecords(props) {
       return response.json();
     }).then((data) => {
       const meetups = [];
-      // console.log(data)
       for (const key in data) {
         const meetup = {
           id: key,

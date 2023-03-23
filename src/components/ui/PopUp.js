@@ -1,5 +1,7 @@
 import React from "react";
 
+import classes from './PopUp.module.css'
+
 function PopUp(props) {
   function cancelHandler() {
     props.onCancel();
@@ -10,7 +12,7 @@ function PopUp(props) {
   }
 
   return (
-    <div className='modal'>
+    <div className={classes.modal}>
       <p>Are you sure?</p>
       <button className='btn btn--alt' onClick={cancelHandler}>
         Cancel

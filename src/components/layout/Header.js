@@ -30,7 +30,8 @@ export default function Header(props) {
           id: key,
           ...data[key]
         };
-        patients.push(patient)
+        if (patient.id != 0)
+          patients.push(patient)
       }
 
       setIsLoading(false)
