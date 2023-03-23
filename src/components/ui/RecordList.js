@@ -1,11 +1,10 @@
 import React from "react";
 
 import classes from './RecordList.module.css'
-import MeetupItem from './RecordItem';
+import RecordItem from './RecordItem';
 
 function RecordList(props) {
   const records = JSON.parse(props.records.pName).records
-  console.log(records)
   const patientsRecords = [];
 
   for (const key in records) {
@@ -13,15 +12,25 @@ function RecordList(props) {
       id: key,
       ...records[key]
     };
-    patientsRecords.push(record)
+    if (record.id != 0)
+      patientsRecords.push(record)
   }
+
+  console.log(patientsRecords)
+
+  let sortedPatientsRecords = patientsRecords.sort(
+    (p1, p2) => (p1.priority < p2.priority) ? 1 : (p1.priority > p2.priority) ? -1 : 0);
+
+  console.log(sortedPatientsRecords)
   return (
     <ul className={classes.list}>
-      {patientsRecords.map((record) => (
-        <MeetupItem
+      {sortedPatientsRecords.map((record) => (
+        <RecordItem
           title={record.title}
           description={record.description}
           date={record.date}
+          priority={record.priority}
+          id={record.id}
         />)
       )}
     </ul>

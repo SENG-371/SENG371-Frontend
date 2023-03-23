@@ -38,6 +38,7 @@ function NewRecordForm(props) {
 
   function closeModalHandler() {
     setPopUpIsOpen(false);
+    window.location.reload(true);
   }
 
   return (
