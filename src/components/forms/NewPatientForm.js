@@ -2,7 +2,7 @@ import React from 'react';
 import { useRef } from 'react';
 
 import classes from './NewPatientForm.module.css'
-import Card from '../ui/Card'
+import Card from '../layout/Card';
 
 function NewPatientForm(props) {
   const pidInputRef = useRef();
