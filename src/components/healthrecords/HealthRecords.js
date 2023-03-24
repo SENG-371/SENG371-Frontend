@@ -4,12 +4,9 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get } from "firebase/database";
 
 import '../../index.css';
-
 import RecordList from './RecordList';
 
-
 function HealthRecords(props) {
-  // console.log(props)
   const pid = JSON.parse(props.pName).pid
   const firebaseConfig = {
     databaseURL: "https://reactstarter-a834d-default-rtdb.firebaseio.com/",
