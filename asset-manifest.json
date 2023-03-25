@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/SENG371-Frontend/static/css/main.30882f8f.css",
-    "main.js": "/SENG371-Frontend/static/js/main.eef44a44.js",
+    "main.css": "/SENG371-Frontend/static/css/main.a03a037d.css",
+    "main.js": "/SENG371-Frontend/static/js/main.0b50a933.js",
     "static/media/ehr.png": "/SENG371-Frontend/static/media/ehr.7da6ad5cfd293fb81bd3.png",
     "index.html": "/SENG371-Frontend/index.html",
-    "main.30882f8f.css.map": "/SENG371-Frontend/static/css/main.30882f8f.css.map",
-    "main.eef44a44.js.map": "/SENG371-Frontend/static/js/main.eef44a44.js.map"
+    "main.a03a037d.css.map": "/SENG371-Frontend/static/css/main.a03a037d.css.map",
+    "main.0b50a933.js.map": "/SENG371-Frontend/static/js/main.0b50a933.js.map"
   },
   "entrypoints": [
-    "static/css/main.30882f8f.css",
-    "static/js/main.eef44a44.js"
+    "static/css/main.a03a037d.css",
+    "static/js/main.0b50a933.js"
   ]
 }
