@@ -16,9 +16,12 @@ function RecordList(props) {
       patientsRecords.push(record)
   }
 
+  console.log(patientsRecords)
+
   let sortedPatientsRecords = patientsRecords.sort(
     (p1, p2) => (p1.priority < p2.priority) ? 1 : (p1.priority > p2.priority) ? -1 : 0);
 
+  console.log(sortedPatientsRecords)
   return (
     <ul className={classes.list}>
       {sortedPatientsRecords.map((record) => (

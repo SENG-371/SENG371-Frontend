@@ -1,12 +1,12 @@
 import React from "react";
 import { useRef, useState } from 'react';
 
-import classes from './TestItem.module.css'
-import Card from "../layout/Card";
-import TestPopUp from "./TestPopUp";
-import Backdrop from "../layout/Backdrop";
+import classes from './RecordItem.module.css'
+import Card from "./Card";
+import RecordPopUp from "./RecordPopUp";
+import Backdrop from "./Backdrop";
 
-function TestItem(props) {
+function RecordItem(props) {
   const [popUpIsOpen, setPopUpIsOpen] = useState(false)
 
   function handleClick() {
@@ -27,10 +27,10 @@ function TestItem(props) {
             <p>{props.date}</p>
           </div>
           <div className={classes.actions}>
-            <button onClick={handleClick}>View Test</button>
+            <button onClick={handleClick}>View Record</button>
           </div>
           {popUpIsOpen && (
-            <TestPopUp onCancel={closeModalHandler} onConfirm={closeModalHandler} info={props} />
+            <RecordPopUp onCancel={closeModalHandler} onConfirm={closeModalHandler} info={props} />
           )}
           {popUpIsOpen && <Backdrop onCancel={closeModalHandler} />}
         </Card>
@@ -39,4 +39,4 @@ function TestItem(props) {
   }
 }
 
-export default TestItem;
+export default RecordItem;
