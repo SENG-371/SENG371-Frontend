@@ -1,14 +1,20 @@
 import React from 'react';
 import { useRef, useState } from 'react';
 
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import Slider from '@mui/material/Slider';
+import VolumeDown from '@mui/icons-material/VolumeDown';
+import VolumeUp from '@mui/icons-material/VolumeUp';
+
 import PopUp from '../healthrecords/PopUp';
 import Backdrop from '../layout/Backdrop';
 import classes from './NewPatientForm.module.css'
 import Card from '../layout/Card'
 
-function NewRecordForm(props) {
+function NewTestForm(props) {
   const titleInputRef = useRef();
-  const ridInputRef = useRef();
+  const tidInputRef = useRef();
   const descriptionInputRef = useRef();
   const dateInputRef = useRef();
 
@@ -19,17 +25,18 @@ function NewRecordForm(props) {
 
     const enteredTitle = titleInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
-    const enteredRid = ridInputRef.current.value;
+    const enteredTid = tidInputRef.current.value;
     const enteredDate = dateInputRef.current.value;
 
     const recordData = {
       title: enteredTitle,
       description: enteredDescription,
-      rid: enteredRid,
-      date: enteredDate
+      tid: enteredTid,
+      date: enteredDate,
+      // riskUpdate: riskValue
     }
 
-    props.onAddRecord(recordData);
+    props.onAddTest(recordData);
   }
 
   function handleClick() {
@@ -40,6 +47,7 @@ function NewRecordForm(props) {
     setPopUpIsOpen(false);
     window.location.reload(true);
   }
+
 
   return (
     <>
@@ -54,16 +62,18 @@ function NewRecordForm(props) {
             <textarea id='description' required rows='5' ref={descriptionInputRef}></textarea>
           </div>
           <div className={classes.control}>
-            <label htmlFor='rid'>Record ID</label>
-            <input type="text" required id="rid" ref={ridInputRef}></input>
+            <label htmlFor='tid'>Test ID</label>
+            <input type="text" required id="tid" ref={tidInputRef}></input>
           </div>
           <div className={classes.control}>
             <label htmlFor='date'>Date</label>
             <input type="text" required id="date" ref={dateInputRef}></input>
           </div>
+          {/* <Slider aria-label="Volume" value={riskValue} onChange={handleChange} /> */}
           <div className={classes.actions}>
-            <button onClick={handleClick}>Add Record</button>
+            <button onClick={handleClick}>Add Test</button>
           </div>
+
         </form>
       </Card>
       {popUpIsOpen && (
@@ -75,4 +85,4 @@ function NewRecordForm(props) {
   );
 }
 
-export default NewRecordForm;
+export default NewTestForm;

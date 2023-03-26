@@ -8,7 +8,6 @@ import { getDatabase, ref, set } from "firebase/database";
 import classes from './Header.module.css'
 
 export default function Header(props) {
-
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [risk, setRisk] = useState('');
