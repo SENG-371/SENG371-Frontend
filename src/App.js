@@ -7,16 +7,19 @@ import LandingPage from "./pages/LandingPage";
 import NewPatient from "./pages/NewPatient";
 import Calendar from "./pages/Calendar";
 import "react-calendar/dist/Calendar.css";
+import { BrowserRouter, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/SENG371-Frontend" element={<LandingPage />} />
-      <Route path="/singin" element={<SignInPage />} />
-      <Route path="/overview" element={<OverviewPage />} />
-      <Route path="/newpatient" element={<NewPatient />} />
-      <Route path="/calendar" element={<Calendar />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/SENG371-Frontend" element={<LandingPage />} />
+        <Route path="/singin" element={<SignInPage />} />
+        <Route path="/overview" element={<OverviewPage />} />
+        <Route path="/newpatient" element={<NewPatient />} />
+        <Route path="/calendar" element={<Calendar />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
