@@ -3,7 +3,6 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 
 import SignInPage from "./pages/SignInPage";
 import OverviewPage from "./pages/OverviewPage";
-import Layout from "./components/layout/Layout";
 import LandingPage from "./pages/LandingPage";
 import NewPatient from "./pages/NewPatient";
 import Calendar from "./pages/Calendar";
@@ -11,7 +10,6 @@ import "react-calendar/dist/Calendar.css";
 
 function App() {
   return (
-    // <HashRouter>
     <Routes>
       <Route path="/SENG371-Frontend" element={<LandingPage />} />
       <Route path="/singin" element={<SignInPage />} />
@@ -19,7 +17,6 @@ function App() {
       <Route path="/newpatient" element={<NewPatient />} />
       <Route path="/calendar" element={<Calendar />} />
     </Routes>
-    // </HashRouter>
   );
 }
 
