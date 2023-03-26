@@ -14,13 +14,28 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const pages = ["Login"];
-const settings = ["Account", "Dashboard", "Logout"];
+const settings = ["Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
   const navigate = useNavigate();
+  // const location = useLocation();
+  // const path = location.pathname;
+  // const store = window.localStorage;
+  // let url = "";
+  // let prevUrl = "";
+
+  // url = store.getItem("url");
+  // store.setItem("prevUrl", url);
+  // store.setItem("url", path);
+
+  // url = store.getItem("url");
+  // prevUrl = store.getItem("prevUrl");
+
+  // console.log(prevUrl);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -44,7 +59,7 @@ function ResponsiveAppBar() {
       navigate("/overview", { replace: true });
     }
     if (s == "Logout") {
-      navigate("/", { replace: true });
+      navigate("/SENG371-Frontend", { replace: true });
     }
   };
 
@@ -59,7 +74,7 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/SENG371-Frontend"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -72,7 +87,6 @@ function ResponsiveAppBar() {
           >
             MHRS
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -141,11 +155,11 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-
+          {/* {prevUrl === "/SENG371-Frontend" ? ( */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Shuja Mughal" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu

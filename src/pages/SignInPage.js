@@ -42,11 +42,15 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-    navigate("/overview", { replace: true });
+
+    if (
+      data.get("email") === "shuja123" &&
+      data.get("password") === "admin123"
+    ) {
+      navigate("/overview", { from: "/signin" });
+    } else {
+      return alert("Wrong username or password, try again!");
+    }
   };
 
   return (
