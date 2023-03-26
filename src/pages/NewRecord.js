@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 
-import NewRecordForm from "../forms/NewRecordForm";
+import NewRecordForm from "../components/forms/NewRecordForm";
 
 function NewRecord() {
   const navigate = useNavigate();

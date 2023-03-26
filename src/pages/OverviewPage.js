@@ -5,13 +5,10 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
-import HealthRecords from '../components/healthrecords/HealthRecords';
+import HealthRecords from '../components/ui/HealthRecords';
 import Header from '../components/layout/Header';
 import classes from './OverviewPage.module.css'
-import NewRecord from '../components/healthrecords/NewRecord';
-import Tests from '../components/tests/Tests';
-import NewTest from '../components/tests/NewTest';
-import Prescriptions from '../components/prescriptions/Prescriptions';
+import NewRecord from './NewRecord';
 
 function OverviewPage() {
 
@@ -40,8 +37,8 @@ function OverviewPage() {
             <Tab onClick={() => setComponent(0)} label="Health Records" />
             <Tab onClick={() => setComponent(1)} label="Tests" />
             <Tab onClick={() => setComponent(2)} label="Prescriptions" />
-            <Tab onClick={() => setComponent(3)} label="Add Record" />
-            <Tab onClick={() => setComponent(4)} label="Add Test" />
+            <Tab onClick={() => setComponent(3)} label="Other Patient Data" />
+            <Tab onClick={() => setComponent(4)} label="Add Record" />
           </Tabs>
         </Box>
       </Grid>
@@ -52,22 +49,22 @@ function OverviewPage() {
       }
       {
         component == 1 && (
-          <Tests pName={currentPatient} />
+          <h1>Tests</h1>
         )
       }
       {
         component == 2 && (
-          <Prescriptions pName={currentPatient} />
+          <h1>Prescriptions</h1>
         )
       }
       {
         component == 3 && (
-          <NewRecord />
+          <h1>Item 3</h1>
         )
       }
       {
         component == 4 && (
-          <NewTest />
+          <NewRecord />
         )
       }
     </div >

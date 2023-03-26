@@ -1,10 +1,10 @@
 import React from 'react';
 import { useRef, useState } from 'react';
 
-import PopUp from '../healthrecords/PopUp';
-import Backdrop from '../layout/Backdrop';
+import PopUp from '../ui/PopUp';
+import Backdrop from '../ui/Backdrop';
 import classes from './NewPatientForm.module.css'
-import Card from '../layout/Card'
+import Card from '../ui/Card'
 
 function NewRecordForm(props) {
   const titleInputRef = useRef();

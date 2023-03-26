@@ -8,6 +8,7 @@ import { getDatabase, ref, set } from "firebase/database";
 import classes from './Header.module.css'
 
 export default function Header(props) {
+
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [risk, setRisk] = useState('');
@@ -73,7 +74,9 @@ export default function Header(props) {
           <option value={name}> -- Select a Patient -- </option>
           {loadedPatients.map((patient) => <option value={patient.name}>{patient.name}</option>)}
         </select>
+        <div className={classes.actions}>
         <button onClick={handleSubmit}>Add new patient</button>
+        </div>
       </div>
       <div className={classes.item3}>
         <h1>Current Patient: {name}</h1>
