@@ -1,3 +1,8 @@
+# Deplyed App URL: https://seng-371.github.io/SENG371-Frontend/
+## Login Username & Password:
+- Username: shuja123
+- Password: admin123
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
