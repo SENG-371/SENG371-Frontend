@@ -1,3 +1,26 @@
+h1 {
+  font-family: 'Inconsolata', monospace;
+  font-weight: 900;
+}
+
+h3 {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 20px;
+}
+
+body {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: small;
+}
+
+label {
+  margin-right: 0.5em;
+}
+
+#select-btn {
+  margin-left: 2em;
+}
+
 .gridContainer {
   display: grid;
   text-align: center;

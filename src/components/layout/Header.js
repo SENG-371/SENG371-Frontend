@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import Button from 'react-bootstrap/Button';
+
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set } from "firebase/database";
 
@@ -10,8 +12,8 @@ import classes from './Header.module.css'
 export default function Header(props) {
 
   const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [risk, setRisk] = useState('');
+
+  const [selectedPatient, setSelectedPatient] = useState({});
 
   const [isLoading, setIsLoading] = useState(true);
   const [loadedPatients, setLoadedPatients] = useState([]);
@@ -41,12 +43,9 @@ export default function Header(props) {
   }, []);
 
   function handleChange(event) {
-    setName(event.target.value)
-    if (loadedPatients.find(({ name }) => event.target.value === name)) {
-      localStorage.setItem('CurrentPatient', JSON.stringify(loadedPatients.find(({ name }) => event.target.value === name)));
+    const patientIndex = event.target.value;
 
-      setRisk(JSON.parse(localStorage.getItem("CurrentPatient")).risk);
-    }
+    setSelectedPatient(props.patients[0]);
 
     props.onChange();
   };
@@ -66,21 +65,28 @@ export default function Header(props) {
   return (
     <div className={classes.gridContainer}>
       <div className={classes.item1}>
-        <h1 className={classes.title}>Welcome Healthcare practitioner</h1>
+        <h1 className={classes.title}>Welcome {props.pracUsername}</h1>
       </div>
-      <div className={classes.item2}>
-        <h1>Patient Lookup</h1>
-        <select onChange={handleChange}>
-          <option value={name}> -- Select a Patient -- </option>
-          {loadedPatients.map((patient) => <option value={patient.name}>{patient.name}</option>)}
+
+      <div className={classes.item2} className="body">
+        <h3>Patient Lookup</h3>
+
+        <label for="patients">Patient:</label>
+
+        <select name="patients" onChange={handleChange}>
+          <option disabled selected>Select a Patient</option>
+          {props.patients.map((patient, index) => <option value={index}>{patient.username}</option>)}
         </select>
+
         <div className={classes.actions}>
-        <button onClick={handleSubmit}>Add new patient</button>
+          <button onClick={handleSubmit}>Add new patient</button>
         </div>
       </div>
+
       <div className={classes.item3}>
-        <h1>Current Patient: {name}</h1>
-        <h1>Risk Level: {risk}</h1>
+        <h3>Current Patient: {selectedPatient.username}</h3>
+
+        <h3>Risk Level: {selectedPatient.riskLevel}</h3>
       </div>
     </div>
   );

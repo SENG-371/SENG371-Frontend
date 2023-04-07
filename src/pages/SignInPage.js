@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import { PractitionerContext } from "../PractitionerContext";
 
 function Copyright(props) {
   return (
@@ -37,20 +38,20 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+  const { pracId, setPracId } = React.useContext(PractitionerContext);
+
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    if (
-      data.get("email") === "shuja123" &&
-      data.get("password") === "admin123"
-    ) {
-      navigate("/overview", { from: "/signin" });
-    } else {
-      return alert("Wrong username or password, try again!");
-    }
+    setPracId(data.get("email"));
+
+    navigate("/overview", { from: "/signin" });
+    // } else {
+    //   return alert("Wrong username or password, try again!");
+    // }
   };
 
   return (

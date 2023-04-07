@@ -11,21 +11,44 @@ import classes from "./OverviewPage.module.css";
 import NewRecord from "./NewRecord";
 import ResponsiveAppBar from "../components/layout/ResponsiveAppBar";
 
+import { PractitionerContext } from "../PractitionerContext";
+
 function OverviewPage() {
+  const { pracId, setPracId } = React.useContext(PractitionerContext);
+
+  const [pracData, setPracData] = useState({});
+  const [pracPatients, setPracPatients] = useState([]);
+
   const [component, setComponent] = useState(0);
 
   const [currentPatient, setCurrentPatient] = useState(0);
+
+  const fetchPracData = () => {
+    fetch(`http://127.0.0.1:8000/api/practitioners/${pracId}`)
+      .then(response => {
+        return response.json()
+      })
+      .then(data => {
+        setPracData(data)
+        setPracPatients(data.patients);
+      })
+
+  }
+
+  React.useEffect(() => {
+    fetchPracData()
+  }, [])
 
   function handleEvent(event) {
     setCurrentPatient(localStorage.getItem("CurrentPatient"));
   }
 
-  function handleChange() {}
+  function handleChange() { }
   return (
     <>
-      <ResponsiveAppBar></ResponsiveAppBar>
+      <ResponsiveAppBar />
       <div className={classes.container}>
-        <Header onChange={handleEvent} />
+        <Header onChange={handleEvent} pracUsername={pracData.username} patients={pracPatients} />
         <Grid item xs={12}>
           <Box className={classes.bar}>
             <Tabs
