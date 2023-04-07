@@ -1,4 +1,10 @@
 .bar {
-  background-color: rgba(0, 162, 255, 0.428);
-  
+  background-color: #1976d2;
+  border-radius: 15px;
+  margin: 10px;
+  color: white;
+}
+
+.container {
+  background-color: #d6e6f1;
 }

@@ -1,23 +1,13 @@
 import * as React from 'react';
 import { useState, useEffect } from "react";
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get } from "firebase/database";
 
 import '../../index.css';
-
 import RecordList from './RecordList';
 
-
 function HealthRecords(props) {
-  // console.log(props)
   const pid = JSON.parse(props.pName).pid
-  const firebaseConfig = {
-    databaseURL: "https://reactstarter-a834d-default-rtdb.firebaseio.com/",
-  };
-  const app = initializeApp(firebaseConfig);
   const [isLoading, setIsLoading] = useState(true);
   const [loadedMeetups, setLoadedMeetups] = useState([]);
-  const records = []
 
   useEffect(() => {
     setIsLoading(true)
@@ -49,16 +39,18 @@ function HealthRecords(props) {
   }
 
   return (
-    <div>
-      <h1>Health Records</h1>
+    <div style={{ margin: '10px' }}>
+      <h1 style={{
+        fontSize: '3rem',
+        color: '#084e94'
+      }}>Health Records</h1>
       {
         props.pName != 0 && (
           <RecordList records={props} />
         )
       }
-    </div>
+    </div >
   );
-
 }
 
 export default HealthRecords;

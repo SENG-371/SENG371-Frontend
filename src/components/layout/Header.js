@@ -70,12 +70,13 @@ export default function Header(props) {
       </div>
       <div className={classes.item2}>
         <h1>Patient Lookup</h1>
-        <select onChange={handleChange}>
-          <option value={name}> -- Select a Patient -- </option>
+        <select className={classes.selection} onChange={handleChange}>
+          <option className={classes.options} value={name}> -- Select a Patient -- </option>
           {loadedPatients.map((patient) => <option value={patient.name}>{patient.name}</option>)}
         </select>
+
         <div className={classes.actions}>
-        <button onClick={handleSubmit}>Add new patient</button>
+          <button onClick={handleSubmit}>Add new patient</button>
         </div>
       </div>
       <div className={classes.item3}>
