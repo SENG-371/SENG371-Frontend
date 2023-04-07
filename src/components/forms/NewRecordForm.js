@@ -16,7 +16,14 @@ function NewRecordForm(props) {
 
   function submitHandler(event) {
     event.preventDefault();
+    setPopUpIsOpen(true);
+  }
 
+  function closeModalHandler() {
+    setPopUpIsOpen(false);
+  }
+
+  function confirmModalHandler() {
     const enteredTitle = titleInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
     const enteredRid = ridInputRef.current.value;
@@ -30,13 +37,6 @@ function NewRecordForm(props) {
     }
 
     props.onAddRecord(recordData);
-  }
-
-  function handleClick() {
-    setPopUpIsOpen(true)
-  }
-
-  function closeModalHandler() {
     setPopUpIsOpen(false);
     window.location.reload(true);
   }
@@ -46,28 +46,51 @@ function NewRecordForm(props) {
       <Card>
         <form className={classes.form} onSubmit={submitHandler}>
           <div className={classes.control}>
-            <label htmlFor='title'>Title</label>
-            <input type="text" required id="title" ref={titleInputRef}></input>
+            <label htmlFor='title'>Title <i>(Letters only. Max length 20 characters)</i></label>
+            <input
+              type="text"
+              required
+              maxlength="20"
+              pattern="[A-Za-z]*"
+              id="title"
+              ref={titleInputRef}
+            >
+            </input>
           </div>
           <div className={classes.control}>
-            <label htmlFor='description'>Description</label>
-            <textarea id='description' required rows='5' ref={descriptionInputRef}></textarea>
+            <label htmlFor='description'>Description <i>(Max length 150 characters)</i></label>
+            <textarea
+              id='description'
+              required
+              rows='5'
+              maxlength="150"
+              ref={descriptionInputRef}></textarea>
           </div>
           <div className={classes.control}>
-            <label htmlFor='rid'>Record ID</label>
-            <input type="text" required id="rid" ref={ridInputRef}></input>
+            <label htmlFor='rid'>Record ID <i>(Numbers only. Must be 10 digits)</i></label>
+            <input
+              type="numeric"
+              required
+              id="rid"
+              maxlength="10"
+              pattern="[0-9]{10}"
+              ref={ridInputRef}></input>
           </div>
           <div className={classes.control}>
             <label htmlFor='date'>Date</label>
-            <input type="text" required id="date" ref={dateInputRef}></input>
+            <input
+              type="date"
+              required
+              id="date"
+              ref={dateInputRef}></input>
           </div>
           <div className={classes.actions}>
-            <button onClick={handleClick}>Add Record</button>
+            <input type='submit'></input>
           </div>
         </form>
       </Card>
       {popUpIsOpen && (
-        <PopUp onCancel={closeModalHandler} onConfirm={closeModalHandler} />
+        <PopUp onCancel={closeModalHandler} onConfirm={confirmModalHandler} />
       )}
       {popUpIsOpen && <Backdrop onCancel={closeModalHandler} />}
     </>
