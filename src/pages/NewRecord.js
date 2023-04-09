@@ -18,6 +18,7 @@ function NewRecord() {
 
   function addRecordHandler(recordData) {
     const db = getDatabase();
+    console.log(recordData)
     set(ref(db, 'patients/' + JSON.parse(localStorage.getItem('CurrentPatient')).pid + '/records/' + recordData.rid), {
       title: recordData.title,
       description: recordData.description,

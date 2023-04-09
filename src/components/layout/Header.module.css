@@ -13,12 +13,28 @@
   grid-column: 1 / span 2;
   grid-row: 2;
   margin: 1rem;
+  margin: 20px;
+  box-shadow: 0 15px 25px rgba(36, 34, 34, 0.2);
+  border-radius: 5px;
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  text-align: center;
+  color: #084e94;
 }
 
 .item3 {
   grid-column: 3;
   grid-row: 2;
   margin: 1rem;
+  margin: 20px;
+  box-shadow: 0 15px 25px rgba(36, 34, 34, 0.2);
+  border-radius: 5px;
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  text-align: center;
+  color: #084e94;
 }
 
 .actions {
@@ -30,16 +46,42 @@
 .actions button {
   font: inherit;
   cursor: pointer;
-  background-color: #77002e;
+  background-color: #1976d2;
   color: white;
   padding: 0.5rem 1.5rem;
-  border: 1px solid #77002e;
+  border: 1px solid #1976d2;
   border-radius: 4px;
   font-weight: bold;
 }
 
 .actions button:hover,
 .actions button:active {
-  background-color: #a50e48;
-  border-color: #a50e48;
+  background-color: #1998d2;
+  border-color: #1976d2;
+}
+
+.title {
+  margin: 20px;
+  box-shadow: 0 15px 25px rgba(36, 34, 34, 0.2);
+  border-radius: 5px;
+  backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  text-align: center;
+  font-size: 3.5rem;
+  color: #084e94;
+}
+
+.selection {
+  background-color: #1976d2;
+  color: white;
+  padding: 12px;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
 }

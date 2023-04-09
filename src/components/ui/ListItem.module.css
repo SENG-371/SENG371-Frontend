@@ -1,0 +1,6 @@
+.item {
+  display: inline-block;
+  margin: 5px;
+  width: 400px;
+  justify-content: center;
+}

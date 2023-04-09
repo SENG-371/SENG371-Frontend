@@ -3,7 +3,8 @@
 }
 
 
-body {
+body,
+#root {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -12,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   overflow: auto;
-  background-color: '#fff'
+  background-color: #d6e6f1
 }
 
 .App {
