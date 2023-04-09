@@ -1,7 +1,9 @@
 .list {
   list-style: none;
-  padding-top: 20px;
-  margin: 10px;
+  padding-top: auto;
+  margin: auto;
+  /* justify-content: center; */
+  text-align: center;
 }
 
 .item {

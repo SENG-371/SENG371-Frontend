@@ -1,41 +1,49 @@
 .image {
-  background-color: aquamarine;
-  border: white 10px solid;
+  background-color: rgb(127, 204, 255);
+  border: white 15px solid;
   border-radius: 20px;
 }
 
-.title {
-  text-align: left;
-
-}
-
 .content {
-  text-align: center;
+  text-align: left;
   padding: 1rem;
 }
 
 .content h3 {
   font-size: 2rem;
   color: #2c292b;
+  background-color: rgb(201, 201, 201);
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.content p {
+  color: #2c292b;
+}
+
+.date {
+  display: inline;
+  padding: 20px;
+  font-size: 3rem;
 }
 
 .actions {
   padding: 1.5rem;
-  text-align: center;
+  text-align: end;
   font-size: 1rem;
 }
 
 .actions button {
   font: inherit;
   cursor: pointer;
-  color: #77002e;
-  border: 1px solid #77002e;
-  background-color: transparent;
+  color: white;
+  border: 1px solid #1976d2;
+  background-color: #1976d2;
   padding: 0.5rem 1.5rem;
   border-radius: 4px;
 }
 
 .actions button:hover,
 .actions button:active {
-  background-color: #ffe2ed;
+  background-color: rgb(127, 204, 255);
 }

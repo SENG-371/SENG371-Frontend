@@ -40,6 +40,8 @@ export default function Header(props) {
     });
   }, []);
 
+  console.log(loadedPatients)
+
   function handleChange(event) {
     setName(event.target.value)
     if (loadedPatients.find(({ name }) => event.target.value === name)) {

@@ -8,3 +8,9 @@
 .container {
   background-color: #d6e6f1;
 }
+
+.container h1 {
+  margin: 10px;
+  font-size: 3rem;
+  color: #084e94
+}

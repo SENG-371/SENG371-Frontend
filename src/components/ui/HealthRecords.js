@@ -39,11 +39,8 @@ function HealthRecords(props) {
   }
 
   return (
-    <div style={{ margin: '10px' }}>
-      <h1 style={{
-        fontSize: '3rem',
-        color: '#084e94'
-      }}>Health Records</h1>
+    <div >
+      <h1>Health Records</h1>
       {
         props.pName != 0 && (
           <RecordList records={props} />

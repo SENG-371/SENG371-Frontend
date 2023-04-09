@@ -28,12 +28,13 @@ function RecordItem(props) {
             <div className={classes.image}>
               <img src={clipboard} />
             </div>
+            <p className={classes.date}>{props.date}</p>
             <div className={classes.content}>
               <h3 className={classes.title}>{props.title}</h3>
               <p>{props.description}</p>
-              <p>{props.date}</p>
             </div>
             <div className={classes.actions}>
+
               <button onClick={handleClick}>View Record</button>
             </div>
             {popUpIsOpen && (
